@@ -12,8 +12,14 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'request' => [
-            'csrfParam' => '_csrf-frontend',
+        'response' => [
+            'formatters' => [
+                'xml' => [
+                    'class' => 'yii\web\XmlResponseFormatter',
+                    'rootTag' => 'data',
+                    'itemTag' => 'product'
+                ],
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -36,14 +42,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+//                ['class' => 'yii\rest\UrlRule', 'controller' => 'product'],
+                'GET api' => 'api/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

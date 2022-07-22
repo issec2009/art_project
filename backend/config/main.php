@@ -13,6 +13,11 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy.г',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
